@@ -8,18 +8,21 @@ module.exports = (System) ->
   Identity = System.getModel 'Identity'
 
   getGroup = (nameOrId) ->
-    mpromise = Group
-    .where
-      _id: nameOrId
-    .findOne()
-    Promise(mpromise)
+    Promise.promise (resolve, reject) ->
+      Group
+      .where
+        _id: nameOrId
+      .findOne()
+      .then (group) ->
+        resolve group
+      .catch (err) ->
+        reject err
     .catch (err) ->
       throw err unless err?.name == 'CastError'
-      mpromise = Group
+      Group
       .where
         name: nameOrId
       .findOne()
-      Promise(mpromise)
 
   list = (req, res, next) ->
     Group
