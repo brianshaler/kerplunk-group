@@ -2,7 +2,7 @@
   "name": "kerplunk-group",
   "displayName": "Groups",
   "description": "Add your friends to lists.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "kerplunk": {
     "dependencies": [
       "kerplunk-identity-autocomplete"
