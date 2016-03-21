@@ -67,7 +67,7 @@ module.exports = React.createFactory React.createClass
         IdentityInputComponent _.extend {}, @props,
           onSelect: @selectIdentityToAdd
           identity: @state.identityToAdd
-          omit: _.pluck @state.identities, '_id'
+          omit: _.map @state.identities, '_id'
         if @state.identityToAdd
           DOM.a
             href: '#'
